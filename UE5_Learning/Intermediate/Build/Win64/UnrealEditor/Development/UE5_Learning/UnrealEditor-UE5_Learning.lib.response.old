@@ -1,0 +1,15 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-UE5_Learning.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\My Unreal Engine Projects\UE5_Learning\Intermediate\Build\Win64\UE5_LearningEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"E:\My Unreal Engine Projects\UE5_Learning\Intermediate\Build\Win64\UnrealEditor\Development\UE5_Learning\UE5_Learning.cpp.obj"
+"E:\My Unreal Engine Projects\UE5_Learning\Intermediate\Build\Win64\UnrealEditor\Development\UE5_Learning\UE5_LearningGameModeBase.cpp.obj"
+"E:\My Unreal Engine Projects\UE5_Learning\Intermediate\Build\Win64\UnrealEditor\Development\UE5_Learning\UE5_Learning.init.gen.cpp.obj"
+"E:\My Unreal Engine Projects\UE5_Learning\Intermediate\Build\Win64\UnrealEditor\Development\UE5_Learning\UE5_LearningGameModeBase.gen.cpp.obj"
+"E:\My Unreal Engine Projects\UE5_Learning\Intermediate\Build\Win64\UnrealEditor\Development\UE5_Learning\Default.rc2.res"
+/OUT:"E:\My Unreal Engine Projects\UE5_Learning\Intermediate\Build\Win64\UnrealEditor\Development\UE5_Learning\UnrealEditor-UE5_Learning.lib"

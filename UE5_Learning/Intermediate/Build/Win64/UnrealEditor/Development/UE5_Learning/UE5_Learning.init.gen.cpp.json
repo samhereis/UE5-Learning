@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "e:\\my unreal engine projects\\ue5_learning\\intermediate\\build\\win64\\unrealeditor\\inc\\ue5_learning\\ue5_learning.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\my unreal engine projects\\ue5_learning\\intermediate\\build\\win64\\ue5_learningeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "e:\\my unreal engine projects\\ue5_learning\\intermediate\\build\\win64\\unrealeditor\\development\\ue5_learning\\definitions.ue5_learning.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

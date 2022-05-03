@@ -1,0 +1,8 @@
+﻿  Using bundled DotNet SDK
+  Log file: C:\Users\samag\AppData\Local\UnrealBuildTool\Log.txt
+  Invalidating makefile for UE5_LearningEditor (working set of source files changed)
+  Parsing headers for UE5_LearningEditor
+    Running UnrealHeaderTool "E:\My Unreal Engine Projects\UE5_Learning\UE5_Learning.uproject" "E:\My Unreal Engine Projects\UE5_Learning\Intermediate\Build\Win64\UE5_LearningEditor\Development\UE5_LearningEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\samag\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+  Reflection code generated for UE5_LearningEditor in 64.2265373 seconds
+UnrealBuildTool : error : Unable to build while Live Coding is active. Exit the editor and game, or press Ctrl+Alt+F11 if iterating on code in the editor or game
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.MakeFile.Targets(44,5): error MSB3073: The command ""E:\Program Files (x86)\UE_5.0\Engine\Build\BatchFiles\Build.bat" UE5_LearningEditor Win64 Development -Project="E:\My Unreal Engine Projects\UE5_Learning\UE5_Learning.uproject" -WaitMutex -FromMsBuild" exited with code 6.

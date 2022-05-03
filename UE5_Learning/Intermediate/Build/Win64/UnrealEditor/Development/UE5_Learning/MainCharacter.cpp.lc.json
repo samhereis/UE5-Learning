@@ -1,0 +1,23 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "e:\\my unreal engine projects\\ue5_learning\\source\\ue5_learning\\gameplay\\characters\\main\\maincharacter.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\my unreal engine projects\\ue5_learning\\intermediate\\build\\win64\\ue5_learningeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "e:\\my unreal engine projects\\ue5_learning\\intermediate\\build\\win64\\unrealeditor\\development\\ue5_learning\\definitions.ue5_learning.h",
+            "e:\\my unreal engine projects\\ue5_learning\\source\\ue5_learning\\gameplay\\characters\\main\\maincharacter.h",
+            "e:\\program files (x86)\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "e:\\program files (x86)\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "e:\\program files (x86)\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\charactermovementreplication.generated.h",
+            "e:\\program files (x86)\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "e:\\program files (x86)\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\rootmotionsource.generated.h",
+            "e:\\program files (x86)\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\character.generated.h",
+            "e:\\program files (x86)\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\springarmcomponent.h",
+            "e:\\program files (x86)\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\springarmcomponent.generated.h",
+            "e:\\my unreal engine projects\\ue5_learning\\intermediate\\build\\win64\\unrealeditor\\inc\\ue5_learning\\maincharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
