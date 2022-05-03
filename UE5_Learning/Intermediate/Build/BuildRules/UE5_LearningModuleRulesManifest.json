@@ -1,8 +1,0 @@
-{
-	"SourceFiles": [
-		"E:\\My Unreal Engine Projects\\UE5_Learning\\Source\\UE5_Learning\\UE5_Learning.Build.cs",
-		"E:\\My Unreal Engine Projects\\UE5_Learning\\Source\\UE5_Learning.Target.cs",
-		"E:\\My Unreal Engine Projects\\UE5_Learning\\Source\\UE5_LearningEditor.Target.cs"
-	],
-	"EngineVersion": "5.0.0"
-}
