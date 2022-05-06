@@ -40,5 +40,35 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	check(PlayerInputComponent);
+
+	PlayerInputComponent->BindAxis("MoveForward", this, &AMainCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
+}
+
+void AMainCharacter::MoveForward(float value)
+{
+	if (Controller != nullptr && value != 0)
+	{
+		AddMovementInput(GetMovementInput(EAxis::X), value);
+	}
+}
+
+void AMainCharacter::MoveRight(float value)
+{
+	if (Controller != nullptr && value != 0)
+	{
+		AddMovementInput(GetMovementInput(EAxis::Y), value);
+	}
+}
+
+FVector AMainCharacter::GetMovementInput(EAxis::Type axis)
+{
+	const FRotator rotation{ Controller->GetControlRotation() };
+	const FRotator yawRotation{ 0, rotation.Yaw, 0 };
+
+	const FVector direction{ FRotationMatrix{yawRotation}.GetUnitAxis(axis) };
+
+	return direction;
 }
 

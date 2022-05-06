@@ -20,6 +20,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	void MoveForward(float value);
+
+	void MoveRight(float value);
+	FVector GetMovementInput(EAxis::Type axis);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
