@@ -44,13 +44,19 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMainCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
+
+	PlayerInputComponent->BindAxis("TurnSideways", this, &AMainCharacter::TurnSideways);
+	PlayerInputComponent->BindAxis("TurnUpwards", this, &AMainCharacter::TurnUpwards);
+
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 }
 
 void AMainCharacter::MoveForward(float value)
 {
 	if (Controller != nullptr && value != 0)
 	{
-		AddMovementInput(GetMovementInput(EAxis::X), value);
+		AddMovementInput(GetMovementDirection(EAxis::X), value);
 	}
 }
 
@@ -58,11 +64,11 @@ void AMainCharacter::MoveRight(float value)
 {
 	if (Controller != nullptr && value != 0)
 	{
-		AddMovementInput(GetMovementInput(EAxis::Y), value);
+		AddMovementInput(GetMovementDirection(EAxis::Y), value);
 	}
 }
 
-FVector AMainCharacter::GetMovementInput(EAxis::Type axis)
+FVector AMainCharacter::GetMovementDirection(EAxis::Type axis)
 {
 	const FRotator rotation{ Controller->GetControlRotation() };
 	const FRotator yawRotation{ 0, rotation.Yaw, 0 };
@@ -70,5 +76,17 @@ FVector AMainCharacter::GetMovementInput(EAxis::Type axis)
 	const FVector direction{ FRotationMatrix{yawRotation}.GetUnitAxis(axis) };
 
 	return direction;
+}
+
+void AMainCharacter::TurnSideways(float value)
+{
+	AddControllerYawInput(value * _turnSidewaysSpeed * GetWorld()->GetDeltaSeconds());
+}
+
+void AMainCharacter::TurnUpwards(float value)
+{
+	value *= _invertedCameraRotation ? -1 : 1;
+
+	AddControllerPitchInput(value * _turnUpwardSpeed * GetWorld()->GetDeltaSeconds());
 }
 
