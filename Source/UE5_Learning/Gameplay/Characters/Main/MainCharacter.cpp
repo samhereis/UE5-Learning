@@ -3,6 +3,7 @@
 
 #include "MainCharacter.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -14,6 +15,10 @@ AMainCharacter::AMainCharacter()
 	_cameraBoom->SetupAttachment(RootComponent);
 	_cameraBoom->TargetArmLength = 150.0f;
 	_cameraBoom->bUsePawnControlRotation = true;
+
+	_camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+	_camera->SetupAttachment(_cameraBoom, USpringArmComponent::SocketName);
+	_camera->bUsePawnControlRotation = false;
 }
 
 // Called when the game starts or when spawned

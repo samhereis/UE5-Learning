@@ -30,11 +30,12 @@ public:
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
     class USpringArmComponent* _cameraBoom;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* _camera;
 
 public: 
 
    FORCEINLINE	USpringArmComponent* GetCameraBoom() const { return _cameraBoom; }
    FORCEINLINE	UCameraComponent* GetCamera() const { return _camera; }
-
 };
