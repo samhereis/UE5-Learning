@@ -26,6 +26,11 @@ protected:
 	void TurnSideways(float value);
 	void TurnUpwards(float value);
 
+	void FireWeapon();
+
+	void DisableCharacterRotationWithMouse();
+	void ConfigureCharacterMovement();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

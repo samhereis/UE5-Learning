@@ -4,6 +4,7 @@
 #include "MainCharacter.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -19,20 +20,35 @@ AMainCharacter::AMainCharacter()
 	_camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	_camera->SetupAttachment(_cameraBoom, USpringArmComponent::SocketName);
 	_camera->bUsePawnControlRotation = false;
+
+	DisableCharacterRotationWithMouse();
+	ConfigureCharacterMovement();
+}
+
+void AMainCharacter::DisableCharacterRotationWithMouse()
+{
+	bUseControllerRotationPitch = false;
+	bUseControllerRotationYaw = false;
+	bUseControllerRotationRoll = false;
+}
+void AMainCharacter::ConfigureCharacterMovement()
+{
+	GetCharacterMovement()->bOrientRotationToMovement = true;
+	GetCharacterMovement()->RotationRate = FRotator(0.f, 540.f, 0.f);
+	GetCharacterMovement()->JumpZVelocity = 600.f;
+	GetCharacterMovement()->AirControl = 0.2f;
 }
 
 // Called when the game starts or when spawned
 void AMainCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
@@ -50,6 +66,8 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	PlayerInputComponent->BindAction("FireButton", IE_Released, this, &AMainCharacter::FireWeapon);
 }
 
 void AMainCharacter::MoveForward(float value)
@@ -90,3 +108,7 @@ void AMainCharacter::TurnUpwards(float value)
 	AddControllerPitchInput(value * _turnUpwardSpeed * GetWorld()->GetDeltaSeconds());
 }
 
+void AMainCharacter::FireWeapon()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Weapon Fired"));
+}
