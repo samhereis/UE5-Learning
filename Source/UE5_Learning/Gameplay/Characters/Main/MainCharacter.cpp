@@ -5,6 +5,9 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
+#include "Engine/SkeletalMeshSocket.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -110,5 +113,16 @@ void AMainCharacter::TurnUpwards(float value)
 
 void AMainCharacter::FireWeapon()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Weapon Fired"));
+	if (_fireSound)
+	{
+		UGameplayStatics::PlaySound2D(this, _fireSound);
+	}
+
+	const USkeletalMeshSocket* barrelSocket = GetMesh()->GetSocketByName("BarrelSocket");
+	if (barrelSocket)
+	{
+		const FTransform socketTransform = barrelSocket->GetSocketTransform(GetMesh());
+
+		if (_muzzleFlash) UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), _muzzleFlash, socketTransform);
+	}
 }

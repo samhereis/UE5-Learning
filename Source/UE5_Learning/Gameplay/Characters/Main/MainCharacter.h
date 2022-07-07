@@ -45,6 +45,10 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true")) float _turnSidewaysSpeed = 45.f;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true")) float _turnUpwardSpeed = 45.f;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true")) bool _invertedCameraRotation = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true")) class USoundCue* _fireSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true")) class UParticleSystem* _muzzleFlash;
 public: 
 
    FORCEINLINE	USpringArmComponent* GetCameraBoom() const { return _cameraBoom; }
