@@ -47,8 +47,8 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true")) bool _invertedCameraRotation = true;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true")) class USoundCue* _fireSound;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true")) class UParticleSystem* _muzzleFlash;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true")) class UAnimMontage* _hipFireMontage;
 public: 
 
    FORCEINLINE	USpringArmComponent* GetCameraBoom() const { return _cameraBoom; }

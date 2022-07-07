@@ -8,6 +8,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
 #include "Engine/SkeletalMeshSocket.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -124,5 +125,27 @@ void AMainCharacter::FireWeapon()
 		const FTransform socketTransform = barrelSocket->GetSocketTransform(GetMesh());
 
 		if (_muzzleFlash) UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), _muzzleFlash, socketTransform);
+
+		const FVector start{ socketTransform.GetLocation() };
+		const FQuat rotation{ socketTransform.GetRotation() };
+		const FVector rotationAxis{ rotation.GetAxisX() };
+		const FVector end{ start + rotationAxis * 50'000.f };
+
+		FHitResult hitResult;
+		GetWorld()->LineTraceSingleByChannel(hitResult,start, end, ECollisionChannel::ECC_Visibility);
+
+		if (hitResult.bBlockingHit)
+		{
+			DrawDebugLine(GetWorld(), start, end, FColor::Red, false, 2.f);
+			DrawDebugPoint(GetWorld(), hitResult.Location, 5.f, FColor::Red, false, 2.f);
+		}
+	}
+
+	UAnimInstance* animInstance = GetMesh()->GetAnimInstance();
+
+	if (animInstance && _hipFireMontage)
+	{
+		animInstance->Montage_Play(_hipFireMontage);
+		animInstance->Montage_JumpToSection(FName("StartFire"));
 	}
 }
